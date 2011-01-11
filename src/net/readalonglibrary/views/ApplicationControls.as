@@ -3,7 +3,7 @@ package net.readalonglibrary.views
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
-	import net.patrickforce.controls.Button;
+	import org.rockholla.controls.Button;
 	import net.readalonglibrary.events.ReadAlongLibraryEvent;
 	
 	import spark.components.Group;

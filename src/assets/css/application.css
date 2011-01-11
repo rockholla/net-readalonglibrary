@@ -1,9 +1,9 @@
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx";
-@namespace pfcontainers "net.patrickforce.containers.*";
+@namespace rhcontainers "org.rockholla.containers.*";
 
-pfcontainers|LoadingContainer, s|BorderContainer
+rhcontainers|LoadingContainer, s|BorderContainer
 {
 	backgroundColor: none;
 	borderColor: none;

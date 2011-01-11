@@ -10,7 +10,7 @@ package net.readalonglibrary.views
 	import mx.controls.Image;
 	import mx.events.ResizeEvent;
 	
-	import net.patrickforce.controls.Button;
+	import org.rockholla.controls.Button;
 	import net.readalonglibrary.ApplicationFacade;
 	import net.readalonglibrary.events.ReadAlongLibraryEvent;
 	import net.readalonglibrary.models.PageContent;
