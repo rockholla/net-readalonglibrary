@@ -9,8 +9,8 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/net.patrickforce [flex]/bin"/>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/net.patrickforce [flex]/libs-swc"/>
+      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/org-rockholla-flex/bin"/>
+      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/org-rockholla-flex/libs-swc"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
