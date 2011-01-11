@@ -16,7 +16,6 @@ package net.readalonglibrary.views
 	import net.readalonglibrary.models.UserLibraryProxy;
 	import net.readalonglibrary.views.popups.PopUpInfo;
 	import net.readalonglibrary.views.popups.PopUpError;
-	import net.readalonglibrary.views.popups.PopUpLove;
 	
 	import org.puremvc.as3.interfaces.IMediator;
 	import org.puremvc.as3.interfaces.INotification;
@@ -62,7 +61,6 @@ package net.readalonglibrary.views
 			this.application.readerDisplay.addEventListener(ReadAlongLibraryEvent.STOP_AUDIO, this._onStopAudio);
 			
 			this.application.addEventListener(ReadAlongLibraryEvent.SHOW_HELP, this._onShowHelp);
-			this.application.addEventListener(ReadAlongLibraryEvent.SHOW_LOVE, this._onShowLove);
 			
 			FlexGlobals.topLevelApplication.systemManager.stage.addEventListener(ResizeEvent.RESIZE, this._onApplicationResize);
 			FlexGlobals.topLevelApplication.systemManager.stage.addEventListener(Event.FULLSCREEN, this._onApplicationResize);
@@ -218,12 +216,8 @@ package net.readalonglibrary.views
 		{
 			var infoAlert:PopUpInfo = PopUpManager.createPopUp(this.application, PopUpInfo, true) as PopUpInfo;
 			infoAlert.title = "Oh, Hello";
-			infoAlert.message = "If you're reading this, you've found the secret!  You've learned how to ask for help.  Call me at (404) 310-4158 and I'll tell you what you need to know.";
+			infoAlert.message = "If you're reading this, you've discovered a great secret:  you've learned how to ask for help!  Please visit https://github.com/rockholla/net-readalonglibrary/blob/master/README for more info.";
 		}
-		
-		protected function _onShowLove(event:Event):void
-		{
-			var loveAlert:PopUpLove = PopUpManager.createPopUp(this.application, PopUpLove, true) as PopUpLove;
-		}
+
 	}
 }

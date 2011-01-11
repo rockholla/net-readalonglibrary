@@ -11,7 +11,6 @@ package net.readalonglibrary.events
 		public static const PAUSE_AUDIO:String = "pauseAudio";
 		public static const STOP_AUDIO:String = "stopAudio";
 		public static const SHOW_HELP:String = "showHelp";
-		public static const SHOW_LOVE:String = "showLove";
 		
 		public function ReadAlongLibraryEvent(type:String, bubbles:Boolean = false, cancelable:Boolean = false)
 		{

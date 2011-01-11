@@ -35,10 +35,6 @@ rhcontainers|LoadingContainer, s|BorderContainer
 {
 	skinClass: ClassReference("net.readalonglibrary.views.skins.HelpButtonSkin");
 }
-.loveButton
-{
-	skinClass: ClassReference("net.readalonglibrary.views.skins.LoveButtonSkin");
-}
 
 s|TitleWindow
 {
