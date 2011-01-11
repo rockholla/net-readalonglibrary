@@ -1,0 +1,51 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace pfcontainers "net.patrickforce.containers.*";
+
+pfcontainers|LoadingContainer, s|BorderContainer
+{
+	backgroundColor: none;
+	borderColor: none;
+	borderVisible: false;
+}
+
+.putBackButton
+{
+	fontSize: 24px;
+}
+
+.playButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.PlayButtonSkin");
+}
+.stopButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.StopButtonSkin");
+}
+.pauseButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.PauseButtonSkin");
+}
+.backButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.BackButtonSkin");
+}
+.helpButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.HelpButtonSkin");
+}
+.loveButton
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.LoveButtonSkin");
+}
+
+s|TitleWindow
+{
+	skinClass: ClassReference("net.readalonglibrary.views.skins.TitleWindowSkin");
+}
+.panelTitle
+{
+	verticalAlign: middle;
+	fontWeight: bold;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication
+	addedToStage="this.onAddedToStage()"
+	applicationComplete="this.onApplicationComplete()"
+	xmlns:views="net.readalonglibrary.views.*"
+	xmlns:pfcontainers="net.patrickforce.containers.*"
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.utils.mousewheel.MouseWheelEnabler;
+			
+			import mx.binding.utils.ChangeWatcher;
+			import mx.controls.Image;
+			
+			import net.patrickforce.utils.Window;
+			import net.readalonglibrary.ApplicationFacade;
+			
+			[Bindable] private var backgroundImage:Image = new Image();
+			
+			private function onApplicationComplete():void
+			{
+				Window.enableFullScreenSwitching();
+				Window.toggleFullScreen();
+				
+				var loader:Loader = new Loader();
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onBackgroundImageLoaded);
+				
+				// check to see if a background image exists in the user's directory first
+				// if not, then we'll just use the default
+				var userBackgroundFile:File = new File(File.documentsDirectory.nativePath + "/Read-Along Library/background.png");
+				if(userBackgroundFile.exists)
+				{
+					loader.load(new URLRequest(userBackgroundFile.url));
+				}
+				else
+				{
+					loader.load(new URLRequest("assets/images/background.png"));	
+				}
+				
+				// Let's just give the app a split second to initialize the above and the loading mask
+				var timer:Timer = new Timer(1000, 1);
+				timer.addEventListener(TimerEvent.TIMER_COMPLETE, onInitWaitComplete);
+				timer.start();
+			}
+			
+			private function onInitWaitComplete(event:TimerEvent):void
+			{
+				ApplicationFacade.getInstance().startup(this);	
+			}
+			
+			private function onBackgroundImageLoaded(event:Event):void
+			{
+				this.backgroundImage.source = LoaderInfo(event.target).content;
+			}
+			
+			private function onAddedToStage():void
+			{
+				MouseWheelEnabler.init(stage);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Style source="assets/css/application.css" />
+	
+	<s:BorderContainer id="background" width="100%" height="100%" backgroundImage="{this.backgroundImage.source}" backgroundImageFillMode="repeat">
+		
+		<pfcontainers:LoadingContainer id="loadingMask" width="100%" height="100%" isLoading="true">
+			<views:LibraryDisplay id="libraryDisplay"/>
+			<views:ReaderDisplay id="readerDisplay" visible="false" />
+		</pfcontainers:LoadingContainer>
+		
+		<views:ApplicationControls id="applicationControls" bottom="0" left="10" />
+		
+	</s:BorderContainer>
+	
+</s:WindowedApplication>

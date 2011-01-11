@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for a Spark TitleWindow container.  
+
+@see spark.skins.spark.TitleWindowCloseButtonSkin
+@see spark.components.TitleWindow
+
+@langversion 3.0
+@playerversion Flash 10
+@playerversion AIR 1.5
+@productversion Flex 4
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" 
+			 xmlns:fb="http://ns.adobe.com/flashbuilder/2009" blendMode="normal" mouseEnabled="false"
+			 minWidth="76" minHeight="76" alpha.disabled="0.5" alpha.disabledWithControlBar="0.5">
+	
+	<fx:Metadata>
+		<![CDATA[ 
+		/** 
+		* @copy spark.skins.spark.ApplicationSkin#hostComponent
+		*/
+		[HostComponent("spark.components.TitleWindow")]
+		]]>
+	</fx:Metadata> 
+	
+	<fx:Script fb:purpose="styling">
+		
+		public static const TITLE_BAR_HEIGHT:Number = 29;
+		
+		/* Define the skin elements that should not be colorized. 
+		For panel, border and title background are skinned, but the content area and title text are not. */
+		static private const exclusions:Array = ["background", "titleDisplay", "contentGroup"];
+		
+		/**
+		 * @private
+		 */  
+		override public function get colorizeExclusions():Array {return exclusions;}
+		
+		/**
+		 * @private
+		 */
+		override protected function initializationComplete():void
+		{
+			useChromeColor = true;
+			super.initializationComplete();
+		}
+		
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="inactive" stateGroups="inactiveGroup" />
+		<s:State name="disabled" />
+		<s:State name="normalWithControlBar" stateGroups="withControls" />
+		<s:State name="inactiveWithControlBar" stateGroups="withControls, inactiveGroup" />
+		<s:State name="disabledWithControlBar" stateGroups="withControls" />
+	</s:states>
+	
+	<s:RectangularDropShadow alpha="0.5" angle="90" width="100%" height="100%" blurX="10" blurY="10" color="0x000000" distance="5" />
+	
+	<s:Rect 
+		id="titleBarDisplay" width="100%" height="{TITLE_BAR_HEIGHT}"
+		topLeftRadiusX="4" topLeftRadiusY="4" topRightRadiusX="4" topRightRadiusY="4"
+		bottomLeftRadiusX="0" bottomLeftRadiusY="0" bottomRightRadiusX="0" bottomRightRadiusY="0">
+		
+		<s:fill>
+			<s:LinearGradient id="titleBarFill" rotation="90">
+				<s:GradientEntry color="0xf6f6f6" ratio="0" alpha="1" />
+				<s:GradientEntry color="0xe9e9e9" ratio="0.5" alpha="1" />
+				<s:GradientEntry color="0xd2d2d2" ratio="0.5" alpha="1" />
+				<s:GradientEntry color="0xf6f6f6" ratio="1" alpha="1" />
+			</s:LinearGradient>
+		</s:fill>
+		
+	</s:Rect>
+	
+	<s:Rect width="100%" height="100%" top="{TITLE_BAR_HEIGHT}">
+		<s:fill>
+			<s:SolidColor color="0xffffff" />
+		</s:fill>
+		
+		<s:stroke>
+			<s:SolidColorStroke color="0xcdcdcd" weight="1" />
+		</s:stroke>
+	</s:Rect>
+	
+	<s:Label id="titleDisplay" maxDisplayedLines="1" height="{TITLE_BAR_HEIGHT}" paddingLeft="10" styleName="panelTitle" />
+	<s:Group id="moveArea" left="0" right="0" top="0" bottom="0" width="100%" height="{TITLE_BAR_HEIGHT}" />
+	<s:Button id="closeButton" skinClass="spark.skins.spark.TitleWindowCloseButtonSkin" right="10" top="7" width="15" height="15" />
+	<s:Group id="contentGroup" width="100%" height="100%" top="{TITLE_BAR_HEIGHT}" />
+	
+</s:SparkSkin>
